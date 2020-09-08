@@ -35,3 +35,4 @@ jobs:
         enable-review-diffs-action: true 
         view-status-action-text: "View Status"
     - uses: actions/checkout@master
+on failure
