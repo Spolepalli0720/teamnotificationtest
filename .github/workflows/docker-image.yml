@@ -8,14 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Microsoft Teams Notification
-      uses: skitionek/notify-microsoft-teams@master
-      if: always()
-      with:
-        webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-        needs: ${{ toJson(needs) }}
-        job: ${{ toJson(job) }}
-        steps: ${{ toJson(steps) }}
+#     - name: Microsoft Teams Notification
+#       uses: skitionek/notify-microsoft-teams@master
+#       if: always()
+#       with:
+#         webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
+#         needs: ${{ toJson(needs) }}
+#         job: ${{ toJson(job) }}
+#         steps: ${{ toJson(steps) }}
     - name: Microsoft Teams Deploy Card
         # You may pin to the exact commit or the version.
         # uses: toko-bifrost/ms-teams-deploy-card@dcc94e4ce4088b1e6b6de5c9a3cda4ddcbe97d2e
@@ -46,7 +46,7 @@ jobs:
         # Enable an action to review commit diffs
         enable-review-diffs-action: true # optional, default is true
         # Customize action text in viewing the deployment status
-        view-status-action-text: ""# optional, default is View build/deploy status
+        view-status-action-text: "View build/deploy status"# optional, default is View build/deploy status
         # Customize action text in reviewing commit diffs
         #review-diffs-action-text: # optional, default is Review commit diffs
         # Add more actions and links on cozy and complete layout
