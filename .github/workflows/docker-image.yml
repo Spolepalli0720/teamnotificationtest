@@ -37,7 +37,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Microsoft Teams Deploy Card
       uses: toko-bifrost/ms-teams-deploy-card@3.1.2
-      if: failure()
+      if: success()
       with:
         webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}     
         github-token: ${{ github.token }}
