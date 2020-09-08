@@ -35,4 +35,20 @@ jobs:
         enable-review-diffs-action: true 
         view-status-action-text: "View Status"
     - uses: actions/checkout@master
-on failure
+    - name: Microsoft Teams Deploy Card
+      uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+      with:
+        webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}     
+        github-token: ${{ github.token }}
+        environment: None
+        timezone: "Asia/Kolkata"
+        card-layout-start: compact 
+        card-layout-exit: complete 
+        show-on-start: true 
+        show-on-exit: true             
+        custom-facts: |
+          - name: ImageTag
+            value: Imagetag text
+        enable-view-status-action: true 
+        enable-review-diffs-action: true 
+        view-status-action-text: "View Status"
