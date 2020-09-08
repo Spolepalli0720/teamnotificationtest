@@ -12,7 +12,7 @@ jobs:
       uses: skitionek/notify-microsoft-teams@master
       if: always()
       with:
-        webhook_url: ds259820.mlab.com:59820/heroku_f131cl97
+        webhook_url: ds259820.mlab.com:59820/heroku_f131cl97/PredictedReviews_sample collectin
         needs: ${{ toJson(needs) }}
         job: ${{ toJson(job) }}
         steps: ${{ toJson(steps) }}
