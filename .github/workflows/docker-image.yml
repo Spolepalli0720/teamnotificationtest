@@ -23,8 +23,8 @@ jobs:
         github-token: ${{ github.token }}
         environment: None
         timezone: "Asia/Kolkata"
-        card-layout-start: complete 
-        card-layout-exit: complete 
+        card-layout-start: compact 
+        card-layout-exit: compact 
         show-on-start: true 
         show-on-exit: true 
         show-on-failure: true         
@@ -37,6 +37,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Microsoft Teams Deploy Card
       uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+      if: failure()
       with:
         webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}     
         github-token: ${{ github.token }}
