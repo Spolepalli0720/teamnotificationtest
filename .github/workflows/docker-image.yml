@@ -16,4 +16,43 @@ jobs:
         needs: ${{ toJson(needs) }}
         job: ${{ toJson(job) }}
         steps: ${{ toJson(steps) }}
+    - name: Microsoft Teams Deploy Card
+        # You may pin to the exact commit or the version.
+        # uses: toko-bifrost/ms-teams-deploy-card@dcc94e4ce4088b1e6b6de5c9a3cda4ddcbe97d2e
+      uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+      with:
+        # Microsoft Teams webhook URI
+        webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
+        # Github token
+        github-token: ${{ github.token }}
+        # Name of the environment (won't be included in the card if none)
+        environment: None # optional
+        # Timezone for notification
+        timezone: "Asia/Kolkata" # optional, default is UTC
+        # Card layout on start (i.e. "complete", "cozy", "compact")
+        card-layout-start: complete # optional, default is complete
+        # Card layout on end (i.e. "complete", "cozy", "compact")
+        card-layout-exit: complete # optional, default is compact
+        # Show the MS Teams card upon starting this Github Actions job
+        show-on-start: true # optional, default is true
+        # Show the MS Teams card upon exiting this Github Actions job
+        show-on-exit: true # optional, default is true
+        # Show the MS Teams card upon failure only of this Github Actions job
+        show-on-failure: true # optional
+        # YAML-parseable multiline string defining the list of object with name and value to display on the facts table
+        #custom-facts: # optional
+        # Enable an action to view the deployment status
+        enable-view-status-action: true # optional, default is true
+        # Enable an action to review commit diffs
+        enable-review-diffs-action: true # optional, default is true
+        # Customize action text in viewing the deployment status
+        view-status-action-text: ""# optional, default is View build/deploy status
+        # Customize action text in reviewing commit diffs
+        #review-diffs-action-text: # optional, default is Review commit diffs
+        # Add more actions and links on cozy and complete layout
+        #custom-actions: # optional
+        # Only for complete layout; Set false to exclude list of files
+        #include-files: # optional, default is true
+        # Allowed number of files to display
+        #allowed-file-len: # optional, default is 7
     - uses: actions/checkout@master
