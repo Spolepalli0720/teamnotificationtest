@@ -46,6 +46,7 @@ jobs:
         card-layout-exit: complete 
         show-on-start: true 
         show-on-exit: true             
+        show-on-failure: true 
         custom-facts: |
           - name: ImageTag
             value: Imagetag text
