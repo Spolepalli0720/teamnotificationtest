@@ -1,13 +1,16 @@
-name: teamnotificationtest
+name: master
 on: 
   push:
-    branches: [ master, develop ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, develop ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+     - name: Run a one-line script
+       run: echo Hello, world from master!
+     - uses: actions/checkout@master  
 #     - name: Microsoft Teams Deploy Card
 #       uses: toko-bifrost/ms-teams-deploy-card@3.1.2
 #       with:
@@ -26,5 +29,5 @@ jobs:
 #         enable-view-status-action: true 
 #         enable-review-diffs-action: true 
 #         view-status-action-text: "View Status"
-    - uses: actions/checkout@master
+    
     
