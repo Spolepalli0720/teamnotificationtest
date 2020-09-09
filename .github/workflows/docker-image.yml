@@ -8,48 +8,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-#     - name: Microsoft Teams Notification
-#       uses: skitionek/notify-microsoft-teams@master
-#       if: always()
+#     - name: Microsoft Teams Deploy Card
+#       uses: toko-bifrost/ms-teams-deploy-card@3.1.2
 #       with:
-#         webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-#         needs: ${{ toJson(needs) }}
-#         job: ${{ toJson(job) }}
-#         steps: ${{ toJson(steps) }}
-    - name: Microsoft Teams Deploy Card
-      uses: toko-bifrost/ms-teams-deploy-card@3.1.2
-      with:
-        webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}     
-        github-token: ${{ github.token }}
-        environment: None
-        timezone: "Asia/Kolkata"
-        card-layout-start: compact 
-        card-layout-exit: compact 
-        show-on-start: true 
-        show-on-exit: true 
-        show-on-failure: true         
-        custom-facts: |
-          - name: ImageTag
-            value: Imagetag text
-        enable-view-status-action: true 
-        enable-review-diffs-action: true 
-        view-status-action-text: "View Status"
+#         webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}     
+#         github-token: ${{ github.token }}
+#         environment: None
+#         timezone: "Asia/Kolkata"
+#         card-layout-start: compact 
+#         card-layout-exit: compact 
+#         show-on-start: true 
+#         show-on-exit: true 
+#         show-on-failure: true         
+#         custom-facts: |
+#           - name: ImageTag
+#             value: Imagetag text
+#         enable-view-status-action: true 
+#         enable-review-diffs-action: true 
+#         view-status-action-text: "View Status"
     - uses: actions/checkout@master
-    - name: Microsoft Teams Deploy Card
-      uses: toko-bifrost/ms-teams-deploy-card@3.1.2
-      if: success()
-      with:
-        webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}     
-        github-token: ${{ github.token }}
-        environment: None
-        timezone: "Asia/Kolkata"
-        card-layout-start: compact 
-        card-layout-exit: complete 
-        show-on-start: true 
-        show-on-exit: true                     
-        custom-facts: |
-          - name: ImageTag
-            value: Imagetag text
-        enable-view-status-action: true 
-        enable-review-diffs-action: true 
-        view-status-action-text: "View Status"
+    
